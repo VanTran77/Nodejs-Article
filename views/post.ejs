@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css">
+        <title><%- pageTitle %></title>
+    </head>
+
+<body>
+    <div class="post-title">
+        <h3 class="title"> New Article </h3>
+        <p><a  class="btn btn-info" href="/">Back</a></p>
+    </div>
+    
+    <div class="post-article content">
+        <form  method="POST" action="/add-article">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter Title">
+            <% if (errors) { %>
+                <small id="err" class="form-text text-muted">
+                <%= errors.title %> </small>
+            <% } %>
+            <label for="Article">Article:</label>
+            <textarea  name="article" placeholder="Enter Article"></textarea>
+            <% if (errors) { %>
+                <small id="err" class="form-text text-muted">
+                <%= errors.article %> </small>
+            <% } %>
+            <button type="submit" class="btn btn-primary">Add article</button>
+        </form>
+    </div>
+    
+<%- include("./components/footer") %>
+
+</body>
+</html>

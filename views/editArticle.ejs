@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css">
+        <title><%- pageTitle %></title>
+    </head>
+
+<body>
+    
+    <div class="edit-back">
+        <p><a class="btn btn-info" href="/showOne-article/<%= result.id %>">Back</a></p>
+        <p><a class="btn btn-info" href="/">Home</a></p>
+    </div>
+              
+    <form class="edit-art" method="POST" action=/edit-article/<%= result.id %> >
+        <label for="title">Title</label>
+        <input name="title" type="text" class="form-control" value="<%= result.title%>" >
+        <% if (errors) { %>
+            <small id="err" class="form-text text-muted">
+            <%= errors.title %> </small>
+        <% } %>
+        <label for="article">Article</label>
+        <textarea name="article" cols="10" rows="10"><%= result.article%></textarea>
+        <% if (errors) { %>
+            <small id="err" class="form-text text-muted">
+            <%= errors.article %> </small>
+        <% } %>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   
+<%- include("./components/footer") %>
+
+</body>
+</html>

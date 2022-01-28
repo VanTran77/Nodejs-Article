@@ -1,0 +1,24 @@
+<%- include("./components/header") %>
+
+<body>
+  <%- include("./components/nav") %>
+  <h3 class="title"> All Articles </h3>
+       
+  <% if (result.length > 0 ) { %>
+    <% result.forEach (result => {%>
+        <div class="card">
+            <div class="card-body content">
+              <a href=/showOne-article/<%= result.id %> >
+                <h5 class="card-title"><%= result.title %></h5>
+              </a>
+              <h6 class="card-subtitle mb-2 text-muted card-text"><%= result.article %></h6>
+            </div>
+          </div>
+        <% } )%>
+<% } else { %>
+  <p>There are no Article to display...</p>
+<% } %>
+    
+<%- include("./components/footer") %>
+</body>
+</html>
